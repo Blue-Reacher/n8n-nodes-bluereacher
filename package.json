@@ -1,0 +1,53 @@
+{
+  "name": "n8n-nodes-bluereacher",
+  "version": "0.1.0",
+  "description": "n8n community node for the Blue Reacher API: send iMessage from your workflows, check iMessage capability, manage contacts and opt-outs.",
+  "keywords": [
+    "n8n-community-node-package",
+    "imessage",
+    "sms",
+    "rcs",
+    "messaging",
+    "bluereacher"
+  ],
+  "license": "MIT",
+  "author": "Sagency International LLC (Blue Reacher)",
+  "homepage": "https://docs.bluereacher.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Blue-Reacher/n8n-nodes-bluereacher.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Blue-Reacher/n8n-nodes-bluereacher/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "index.js",
+  "files": [
+    "dist",
+    "index.js"
+  ],
+  "scripts": {
+    "build": "tsc && node scripts/copy-assets.mjs",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/BlueReacherApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/BlueReacher/BlueReacher.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "n8n-workflow": "^1.70.0",
+    "typescript": "^5.6.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
